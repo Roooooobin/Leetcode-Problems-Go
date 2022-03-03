@@ -7,12 +7,7 @@ func findSubstring(s string, words []string) []int {
 	totLen := m * n
 	wordMap := make(map[string]int)
 	for _, word := range words {
-		_, ok := wordMap[word]
-		if !ok {
-			wordMap[word] = 1
-		} else {
-			wordMap[word]++
-		}
+		wordMap[word]++
 	}
 	res := make([]int, 0)
 	for i := 0; i <= len(s)-totLen; i++ {
@@ -24,15 +19,10 @@ func findSubstring(s string, words []string) []int {
 				flag = false
 				break
 			}
-			_, ok := tmpMap[word]
-			if !ok {
-				tmpMap[word] = 1
-			} else {
-				tmpMap[word]++
-				if tmpMap[word] > wordMap[word] {
-					flag = false
-					break
-				}
+			tmpMap[word]++
+			if tmpMap[word] > wordMap[word] {
+				flag = false
+				break
 			}
 			if !flag {
 				break
