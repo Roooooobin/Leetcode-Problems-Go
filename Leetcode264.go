@@ -19,10 +19,10 @@ func nthUglyNumber(n int) int {
 	return nums[n-1]
 }
 
-func min(x, y int) int {
-	if x < y {
-		return x
-	} else {
-		return y
-	}
-}
+//func min(x, y int) int {
+//	if x < y {
+//		return x
+//	} else {
+//		return y
+//	}
+//}

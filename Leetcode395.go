@@ -67,13 +67,13 @@ func checkK(s string, k int) bool {
 	return true
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
-	} else {
-		return y
-	}
-}
+//func max(x, y int) int {
+//	if x > y {
+//		return x
+//	} else {
+//		return y
+//	}
+//}
 
 func main() {
 
