@@ -14,25 +14,25 @@ func countRectangles(rectangles [][]int, points [][]int) []int {
 	for i := range ys {
 		sort.Ints(ys[i])
 	}
-	binarySearch := func(a []int, target int) int {
-		n := len(a)
-		if target < a[0] {
-			return 0
-		}
-		if target > a[n-1] {
-			return n
-		}
-		lo, hi := 0, n-1
-		for lo <= hi {
-			mi := lo + (hi-lo)>>1
-			if target <= a[mi] {
-				hi = mi - 1
-			} else {
-				lo = mi + 1
-			}
-		}
-		return lo
-	}
+	//binarySearch := func(a []int, target int) int {
+	//	n := len(a)
+	//	if target < a[0] {
+	//		return 0
+	//	}
+	//	if target > a[n-1] {
+	//		return n
+	//	}
+	//	lo, hi := 0, n-1
+	//	for lo <= hi {
+	//		mi := lo + (hi-lo)>>1
+	//		if target <= a[mi] {
+	//			hi = mi - 1
+	//		} else {
+	//			lo = mi + 1
+	//		}
+	//	}
+	//	return lo
+	//}
 	res := make([]int, 0)
 	for _, point := range points {
 		cnt := 0
@@ -40,17 +40,9 @@ func countRectangles(rectangles [][]int, points [][]int) []int {
 			if len(ys[i]) == 0 {
 				continue
 			}
-			cnt += len(ys[i]) - binarySearch(ys[i], point[0])
+			cnt += len(ys[i]) - sort.SearchInts(ys[i], point[0])
 		}
 		res = append(res, cnt)
 	}
 	return res
-}
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	} else {
-		return y
-	}
 }
