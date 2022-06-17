@@ -43,3 +43,27 @@ func max(x, y int) int {
 		return y
 	}
 }
+
+func countSubstrings(s string) int {
+
+	n := len(s)
+	dp := make([][]bool, n)
+	for i := range dp {
+		dp[i] = make([]bool, n)
+		dp[i][i] = true
+	}
+	res := n
+	for i := n - 2; i >= 0; i-- {
+		for j := i + 1; j < n; j++ {
+			if j == i+1 {
+				dp[i][j] = s[i] == s[j]
+			} else {
+				dp[i][j] = s[i] == s[j] && dp[i+1][j-1]
+			}
+			if dp[i][j] {
+				res++
+			}
+		}
+	}
+	return res
+}
