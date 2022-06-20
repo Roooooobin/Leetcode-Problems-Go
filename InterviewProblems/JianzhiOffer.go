@@ -111,3 +111,54 @@ func reverseList(head *ListNode) *ListNode {
 	head.Next = nil
 	return node
 }
+
+func asteroidCollision(asteroids []int) []int {
+
+	stack := make([]int, 0)
+	for _, asteroid := range asteroids {
+		if asteroid < 0 {
+			flag := true // should add this asteroid
+			for len(stack) > 0 {
+				top := stack[len(stack)-1]
+				if top < 0 {
+					break
+				}
+				if top+asteroid < 0 {
+					stack = stack[:len(stack)-1]
+				} else if top+asteroid == 0 {
+					stack = stack[:len(stack)-1]
+					flag = false
+					break
+				} else {
+					flag = false
+					break
+				}
+			}
+			if flag {
+				stack = append(stack, asteroid)
+			}
+		} else {
+			stack = append(stack, asteroid)
+		}
+	}
+	return stack
+}
+
+func dailyTemperatures(temperatures []int) []int {
+
+	stack := make([]int, 0)
+	res := make([]int, len(temperatures))
+	for i, t := range temperatures {
+		for len(stack) > 0 {
+			top := stack[len(stack)-1]
+			if t > temperatures[top] {
+				res[top] = i - top
+				stack = stack[:len(stack)-1]
+			} else {
+				break
+			}
+		}
+		stack = append(stack, i)
+	}
+	return res
+}
