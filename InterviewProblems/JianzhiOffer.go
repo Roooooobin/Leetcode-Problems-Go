@@ -162,3 +162,30 @@ func dailyTemperatures(temperatures []int) []int {
 	}
 	return res
 }
+
+type MovingAverage struct {
+	window []int
+	sum    float64
+	size   int
+}
+
+/** Initialize your data structure here. */
+func Constructor(size int) MovingAverage {
+
+	window := make([]int, 0)
+	return MovingAverage{window, 0, size}
+}
+
+func (this *MovingAverage) Next(val int) float64 {
+
+	if len(this.window) < this.size {
+		this.window = append(this.window, val)
+		this.sum += float64(val)
+		return this.sum / float64(len(this.window))
+	}
+	this.sum -= float64(this.window[0])
+	this.sum += float64(val)
+	this.window = this.window[1:]
+	this.window = append(this.window, val)
+	return this.sum / float64(len(this.window))
+}
