@@ -36,14 +36,6 @@ func findMaxLength(nums []int) int {
 	return res
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
-	} else {
-		return y
-	}
-}
-
 func countSubstrings(s string) int {
 
 	n := len(s)
@@ -188,4 +180,63 @@ func (this *MovingAverage) Next(val int) float64 {
 	this.window = this.window[1:]
 	this.window = append(this.window, val)
 	return this.sum / float64(len(this.window))
+}
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+func pruneTree(root *TreeNode) *TreeNode {
+
+	if root == nil {
+		return nil
+	}
+	root.Left = pruneTree(root.Left)
+	root.Right = pruneTree(root.Right)
+	if root.Val == 0 && root.Left == nil && root.Right == nil {
+		return nil
+	}
+	return root
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	} else {
+		return y
+	}
+}
+
+func maxPathSum(root *TreeNode) int {
+
+	res := -0x3f3f3f3f
+	var dfs func(node *TreeNode) int
+	dfs = func(node *TreeNode) int {
+		if node == nil {
+			return 0
+		}
+		left := max(0, dfs(node.Left))
+		right := max(0, dfs(node.Right))
+		res = max(res, left+right+node.Val)
+		return node.Val + max(left, right)
+	}
+	dfs(root)
+	return res
+}
+
+func inorderSuccessor(root *TreeNode, p *TreeNode) *TreeNode {
+
+	if root == nil {
+		return nil
+	}
+	if root.Val <= p.Val {
+		return inorderSuccessor(root.Right, p)
+	}
+	left := inorderSuccessor(root.Left, p)
+	if left == nil {
+		return root
+	}
+	return left
 }
