@@ -1,5 +1,7 @@
 package main
 
+import "container/heap"
+
 func subarraySum(nums []int, k int) int {
 
 	hash := make(map[int]int)
@@ -239,4 +241,89 @@ func inorderSuccessor(root *TreeNode, p *TreeNode) *TreeNode {
 		return root
 	}
 	return left
+}
+
+//https://leetcode.cn/problems/7WqeDu/solution/zhi-he-xia-biao-zhi-chai-du-zai-gei-ding-94ei/
+// 桶排序
+func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
+
+	getID := func(x int) int {
+		if x >= 0 {
+			return x / (t + 1)
+		}
+		return (x+1)/(t+1) - 1
+	}
+	mp := make(map[int]int)
+	for i, x := range nums {
+		id := getID(x)
+		if _, ok := mp[id]; ok {
+			return true
+		}
+		if y, ok := mp[id-1]; ok && abs(x-y) <= t {
+			return true
+		}
+		if y, ok := mp[id+1]; ok && abs(x-y) <= t {
+			return true
+		}
+		mp[id] = x
+		if i >= k {
+			delete(mp, getID(nums[i-k]))
+		}
+	}
+	return false
+}
+
+func abs(x int) int {
+	if x < 0 {
+		x = -x
+	}
+	return x
+}
+
+func min(x, y int) int {
+	if x < y {
+		return x
+	}
+	return y
+}
+
+func kSmallestPairs(nums1 []int, nums2 []int, k int) [][]int {
+
+	n1, n2 := len(nums1), len(nums2)
+	hp := &maxHeap{nil, nums1, nums2}
+	for i := 0; i < n1 && i < k; i++ {
+		hp.data = append(hp.data, Node{i, 0})
+	}
+	res := make([][]int, 0)
+	for hp.Len() > 0 && len(res) < k {
+		top := heap.Pop(hp).(Node)
+		i, j := top.i, top.j
+		res = append(res, []int{nums1[i], nums2[j]})
+		if j+1 < n2 {
+			heap.Push(hp, Node{i, j + 1})
+		}
+	}
+	return res
+}
+
+type Node struct {
+	i, j int
+}
+type maxHeap struct {
+	data         []Node
+	nums1, nums2 []int
+}
+
+func (h maxHeap) Len() int { return len(h.data) }
+func (h maxHeap) Less(i, j int) bool {
+	return h.nums1[h.data[i].i]+h.nums2[h.data[i].j] < h.nums1[h.data[j].i]+h.nums2[h.data[j].j]
+}
+func (h maxHeap) Swap(i, j int)       { h.data[i], h.data[j] = h.data[j], h.data[i] }
+func (h *maxHeap) Push(v interface{}) { h.data = append(h.data, v.(Node)) }
+func (h *maxHeap) Pop() interface{} {
+	a := h.data
+	n := len(a)
+	v := a[n-1]
+	h.data = a[:n-1]
+	return v
 }

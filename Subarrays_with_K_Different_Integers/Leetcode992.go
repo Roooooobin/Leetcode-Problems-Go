@@ -40,7 +40,7 @@ func subarraysWithKDistinct(nums []int, k int) int {
 }
 
 /*
-another solution
+better
 func subarraysWithKDistinct(nums []int, k int) (ans int) {
     n := len(nums)
     num1 := make([]int, n+1)
