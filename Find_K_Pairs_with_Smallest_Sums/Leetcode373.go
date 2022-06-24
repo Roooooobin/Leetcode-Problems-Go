@@ -42,3 +42,8 @@ func (h *maxHeap) Pop() interface{} {
 	h.data = a[:n-1]
 	return v
 }
+
+/*
+多路归并
+用小顶堆找到当前最小的下标,然后拓展,前k个一定会在k次拓展中得出
+*/

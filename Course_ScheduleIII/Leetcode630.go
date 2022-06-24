@@ -38,3 +38,10 @@ func (h maxHeap) Less(i, j int) bool  { return h[i] > h[j] }
 func (h maxHeap) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
 func (h *maxHeap) Push(v interface{}) { *h = append(*h, v.(int)) }
 func (h *maxHeap) Pop() interface{}   { a := *h; n := len(*h); v := a[n-1]; *h = a[:n-1]; return v }
+
+/*
+贪心
+按照结束时间升序排序, 记录当前时间cur, 最大堆保存每节课的duration
+如果新的课duration + cur <= endTime,那么这个课可以加入
+但是,如果有一节新的课duration小于当前最大的,因为结束时间是升序排序的,那么这节课一定可以加入同时在总数不变的情况下可以减少当前时间,所以贪心选择这节课而不是当前在堆顶的
+*/

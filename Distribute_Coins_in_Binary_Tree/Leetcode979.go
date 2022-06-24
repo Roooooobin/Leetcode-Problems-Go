@@ -31,3 +31,7 @@ func abs(x int) int {
 }
 
 // https://leetcode.cn/problems/distribute-coins-in-binary-tree/solution/zai-er-cha-shu-zhong-fen-pei-ying-bi-by-leetcode/
+/*
+递归, 树的后序遍历
+每个节点当做中转站, 要中转的值是|1-val|, 后序遍历, 左右往上累加
+*/

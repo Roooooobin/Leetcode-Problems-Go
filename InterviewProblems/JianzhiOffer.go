@@ -244,7 +244,9 @@ func inorderSuccessor(root *TreeNode, p *TreeNode) *TreeNode {
 }
 
 //https://leetcode.cn/problems/7WqeDu/solution/zhi-he-xia-biao-zhi-chai-du-zai-gei-ding-94ei/
-// 桶排序
+/*
+桶排序,按照值划分桶,每个桶只存一个元素,如果当前值x对应的桶已经有说明找到了,如果没有找上一个和下一个桶并且判断值差是否满足. 桶中的值只保留k范围内
+*/
 func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
 
 	getID := func(x int) int {

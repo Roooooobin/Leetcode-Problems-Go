@@ -46,3 +46,8 @@ func (this *LRUCache) Put(key int, value int) {
 	this.hash[key] = this.l.Front()
 	this.keyValue[key] = value
 }
+
+/*
+LRU, 链表+哈希表
+Put也要更新频率
+*/
