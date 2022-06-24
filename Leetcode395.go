@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func longestSubstring(s string, k int) int {
 
 	res := longestSubstringHelper(s, k)
@@ -74,8 +72,3 @@ func checkK(s string, k int) bool {
 //		return y
 //	}
 //}
-
-func main() {
-
-	fmt.Println(longestSubstring("bbaaacbd", 3))
-}

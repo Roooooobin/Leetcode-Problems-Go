@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 func kthSmallest(matrix [][]int, k int) int {
 	var n, m = len(matrix), len(matrix[0])
 	var l, r = matrix[0][0], matrix[n-1][m-1]
@@ -23,9 +21,4 @@ func kthSmallest(matrix [][]int, k int) int {
 		}
 	}
 	return l
-}
-
-func main() {
-	var mat = [][]int{{1, 2}, {3, 4}}
-	fmt.Println(kthSmallest(mat, 2))
 }
