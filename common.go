@@ -51,5 +51,5 @@ func main() {
 	convert := func(s string) string {
 		return strings.Join(strings.Split(s, " "), "_")
 	}
-	fmt.Println(convert(""))
+	fmt.Println(convert("Maximum Points You Can Obtain from Cards"))
 }

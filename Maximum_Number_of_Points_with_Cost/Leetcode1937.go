@@ -38,3 +38,8 @@ func max(x, y int) int {
 	}
 	return y
 }
+
+/*
+DP
+算完每一层之后,用前缀最小值和后缀最小值降低复杂度
+*/

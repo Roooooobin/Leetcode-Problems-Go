@@ -329,3 +329,23 @@ func (h *maxHeap) Pop() interface{} {
 	h.data = a[:n-1]
 	return v
 }
+
+func searchInsert(nums []int, target int) int {
+
+	lo, hi := 0, len(nums)-1
+	if target > nums[hi] {
+		return len(nums)
+	}
+	if target < nums[lo] {
+		return lo
+	}
+	for lo <= hi {
+		mi := lo + (hi-lo)>>1
+		if nums[mi] >= target {
+			hi = mi - 1
+		} else {
+			lo = mi + 1
+		}
+	}
+	return lo
+}
