@@ -5,20 +5,6 @@ import (
 	"strings"
 )
 
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}
-
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-
 func abs(x int) int {
 	if x < 0 {
 		x = -x
@@ -39,17 +25,32 @@ func init() {
 	fmt.Println(MOD, directions)
 }
 
-type maxHeap []int
-
-func (h maxHeap) Len() int            { return len(h) }
-func (h maxHeap) Less(i, j int) bool  { return h[i] > h[j] }
-func (h maxHeap) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
-func (h *maxHeap) Push(v interface{}) { *h = append(*h, v.(int)) }
-func (h *maxHeap) Pop() interface{}   { a := *h; n := len(*h); v := a[n-1]; *h = a[:n-1]; return v }
+//
+//type maxHeap []int
+//
+//func (h maxHeap) Len() int            { return len(h) }
+//func (h maxHeap) Less(i, j int) bool  { return h[i] > h[j] }
+//func (h maxHeap) Swap(i, j int)       { h[i], h[j] = h[j], h[i] }
+//func (h *maxHeap) Push(v interface{}) { *h = append(*h, v.(int)) }
+//func (h *maxHeap) Pop() interface{}   { a := *h; n := len(*h); v := a[n-1]; *h = a[:n-1]; return v }
 
 func main() {
 	convert := func(s string) string {
 		return strings.Join(strings.Split(s, " "), "_")
 	}
-	fmt.Println(convert("Maximum Points You Can Obtain from Cards"))
+	fmt.Println(convert(""))
+}
+
+func min(x, y int) int {
+	if x < y {
+		return x
+	}
+	return y
+}
+
+func max(x, y int) int {
+	if x > y {
+		return x
+	}
+	return y
 }
