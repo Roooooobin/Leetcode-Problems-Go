@@ -349,3 +349,22 @@ func searchInsert(nums []int, target int) int {
 	}
 	return lo
 }
+
+func generateParenthesis(n int) []string {
+
+	res := make([]string, 0)
+	var backtracking func(cur string, left, right int)
+	backtracking = func(cur string, left, right int) {
+		if left+right == 2*n {
+			res = append(res, cur)
+		}
+		if left < n {
+			backtracking(cur+"(", left+1, right)
+		}
+		if left > right {
+			backtracking(cur+")", left, right+1)
+		}
+	}
+	backtracking("", 0, 0)
+	return res
+}
