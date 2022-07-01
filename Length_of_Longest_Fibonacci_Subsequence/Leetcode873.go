@@ -29,3 +29,8 @@ func max(x, y int) int {
 	}
 	return y
 }
+
+/*
+- -DP
+dp[j][i] = dp[idx][j]+1 idx是arr[i] - arr[j],形成idx, j ,i的fibonacci数列
+*/

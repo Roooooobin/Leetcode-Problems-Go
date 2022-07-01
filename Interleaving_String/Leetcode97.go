@@ -32,6 +32,6 @@ func isInterleave(s1 string, s2 string, s3 string) bool {
 }
 
 /*
-动态规划
+- -DP
 dp[i][j]表示s1[:i]和s2[:j]是否能交织得到s3[:i+j-1]
 */

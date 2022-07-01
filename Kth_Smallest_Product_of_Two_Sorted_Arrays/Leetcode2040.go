@@ -55,7 +55,7 @@ func kthSmallestProduct(nums1 []int, nums2 []int, k int64) int64 {
 }
 
 /*
-二分
+- -二分
 求第k个: 可能是利用heap; 也可能是利用二分尝试一个答案, check与k的关系
 */
 

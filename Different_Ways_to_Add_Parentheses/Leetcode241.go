@@ -39,6 +39,6 @@ func diffWaysToCompute(expression string) []int {
 
 /*
 https://leetcode.cn/problems/different-ways-to-add-parentheses/solution/pythongolang-fen-zhi-suan-fa-by-jalan/
-分治
+- -分治
 本质上就是遍历i,算出左右两边可能的结果然后组合
 */

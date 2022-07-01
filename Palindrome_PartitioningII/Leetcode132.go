@@ -43,3 +43,8 @@ func min(x, y int) int {
 	}
 	return y
 }
+
+/*
+- -DP
+dp[i]表示0-i之间分割的最小, dp[i] = min(dp[i], dp[j]+1), 如果j+1-i可以分割
+*/
