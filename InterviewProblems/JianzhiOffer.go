@@ -282,13 +282,6 @@ func abs(x int) int {
 	return x
 }
 
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
-}
-
 func kSmallestPairs(nums1 []int, nums2 []int, k int) [][]int {
 
 	n1, n2 := len(nums1), len(nums2)
@@ -367,4 +360,44 @@ func generateParenthesis(n int) []string {
 	}
 	backtracking("", 0, 0)
 	return res
+}
+
+func coinChange(coins []int, amount int) int {
+
+	INF := 0x3f3f3f3f
+	dp := make([]int, amount+1)
+	for i := range dp {
+		dp[i] = INF
+	}
+	dp[0] = 0
+	for _, coin := range coins {
+		for i := coin; i <= amount; i++ {
+			dp[i] = min(dp[i], dp[i-coin]+1)
+		}
+	}
+	if dp[amount] == INF {
+		return -1
+	}
+	return dp[amount]
+}
+
+func min(x, y int) int {
+	if x < y {
+		return x
+	}
+	return y
+}
+
+func combinationSum4(nums []int, target int) int {
+
+	dp := make([]int, target+1)
+	dp[0] = 1
+	for i := 1; i <= target; i++ {
+		for _, num := range nums {
+			if i >= num {
+				dp[i] += dp[i-num]
+			}
+		}
+	}
+	return dp[target]
 }
