@@ -55,3 +55,8 @@ func mergeKLists(lists []*ListNode) *ListNode {
 	}
 	return res.Next
 }
+
+/*
+- -多路归并排序
+将所有链表的头放入heap, 每次取出最小的, 然后该链表往后移动
+*/

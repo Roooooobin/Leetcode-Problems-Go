@@ -38,3 +38,7 @@ func min(x, y int) int {
 }
 
 //https://leetcode.cn/problems/minimize-the-difference-between-target-and-chosen-elements/solution/liang-chong-fang-fa-jian-dan-yi-dong-ji-7jugp/
+/*
+- -DP,记忆化搜索
+超过了当前最小差则剪枝, 记忆化前i行累计和为sum
+*/

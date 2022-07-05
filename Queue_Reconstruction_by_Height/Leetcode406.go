@@ -34,7 +34,7 @@ func reconstructQueue(people [][]int) [][]int {
 //}
 
 /*
-贪心+排序
+- -贪心+排序
 从低到高排序,身高相同的按照p[1]倒序
 先放矮的,同时改变下标数组indexes,始终按照indexes[p[1]]放置
 */

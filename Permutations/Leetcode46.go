@@ -22,3 +22,9 @@ func permute(nums []int) [][]int {
 	backtracking(0, nums)
 	return res
 }
+
+/*
+- -回溯
+0-n-1每个位置都试着与后面交换
+最后记录结果要用res = append(res, append([]int{}, cur...)), 不然因为浅拷贝, 后续会影响
+*/
