@@ -28,5 +28,6 @@ func findMaximumXOR(nums []int) (x int) {
 //https://leetcode.cn/problems/ms70jA/solution/zui-da-de-yi-huo-by-leetcode-solution-hr7m/
 
 /*
+- -字典树
 字典树记录各个二进制
 */

@@ -3,6 +3,7 @@ package main
 import "container/list"
 
 /*
+- -list.List用法
 学习一下list.List的用法
 https://leetcode-cn.com/problems/all-oone-data-structure/solution/quan-o1-de-shu-ju-jie-gou-by-leetcode-so-7gdv/
 */

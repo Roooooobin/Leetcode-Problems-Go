@@ -111,6 +111,6 @@ func furthestBuildingBetter(heights []int, bricks int, ladders int) int {
 }
 
 /*
-贪心
+- -贪心
 用大顶堆保存要用ladder, 每次都先用bricks尝试, 如果不够,放入堆中, 如果还有ladder,那么用大顶堆中最大的放回bricks, 如果没有ladder了或是用ladder也还不够,则结束
 */

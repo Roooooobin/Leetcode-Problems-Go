@@ -48,6 +48,6 @@ func (this *LRUCache) Put(key int, value int) {
 }
 
 /*
-LRU, 链表+哈希表
+- -LRU, 链表+哈希表
 Put也要更新频率
 */

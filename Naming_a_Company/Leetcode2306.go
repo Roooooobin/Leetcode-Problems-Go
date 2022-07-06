@@ -27,5 +27,6 @@ func distinctNames(ideas []string) (res int64) {
 }
 
 /*
+- -分组讨论
 首字母分组, 当前组有m个,另一个组里n个,如果有后缀相同的cnt个,那么res+=(m-cnt)*(n-cnt)
 */
