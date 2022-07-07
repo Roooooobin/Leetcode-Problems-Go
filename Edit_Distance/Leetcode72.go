@@ -32,3 +32,9 @@ func min(x, y int) int {
 		return y
 	}
 }
+
+/*
+- -DP
+dp[i][j]表示word1[:i]到word2[:j]的距离, 如果word1[i-1] == word2[j-1]那么dp[i][j] = dp[i-1][j-1]
+否则需要删除或插入或替换一个字符, dp[i][j] = min(dp[i-1][j-1], dp[i][j-1], dp[i-1][j]) + 1
+*/
