@@ -43,3 +43,8 @@ func getColMax(nums [][]int, col int) int {
 	}
 	return resRow
 }
+
+/*
+- -二分hard
+找到列的最大值, 往左右二分
+*/

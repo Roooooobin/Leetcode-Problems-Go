@@ -48,3 +48,8 @@ func main() {
 	//findLengthOfShortestSubarray([]int{1, 4, 3, 2, 1, 2, 3})
 	findLengthOfShortestSubarray([]int{0, 1})
 }
+
+/*
+- -双指针
+三种情况, 左边从开头直接一直非递减, 从某个位置到结尾一直非递减, 和左边一部分+右边一部分(用二分找)
+*/

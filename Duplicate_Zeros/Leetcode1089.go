@@ -22,7 +22,7 @@ func duplicateZerosSpaceN(arr []int) {
 }
 
 // space: O(1)
-func duplicateZeros(arr []int) {
+func duplicateZerosBetter(arr []int) {
 
 	n := len(arr)
 	count := 0

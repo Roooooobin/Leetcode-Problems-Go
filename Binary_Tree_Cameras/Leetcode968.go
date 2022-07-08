@@ -6,7 +6,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func minCameraCoverGood(root *TreeNode) int {
+func minCameraCoverBetter(root *TreeNode) int {
 
 	res := 0
 	var postTraversal func(node *TreeNode) int
@@ -65,3 +65,10 @@ func minCameraCover(root *TreeNode) int {
 	}
 	return res
 }
+
+/*
+- -后序遍历
+后序遍历延迟安排摄像头
+分情况讨论, 如果左儿子右儿子其中一个为0, 表示必须安排一个了, 如果有某一个为1, 表示能被辐射到, 但是本身自己没有摄像头
+最后还要单独判断root
+*/

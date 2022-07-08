@@ -39,3 +39,8 @@ func max(x, y int) int {
 	}
 	return y
 }
+
+/*
+- -回溯
+分给k个, 建立一个make([]int, k)切片然后回溯分配
+*/

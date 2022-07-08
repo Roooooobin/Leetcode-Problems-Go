@@ -52,4 +52,8 @@ func (this *WordFilter) F(prefix string, suffix string) int {
 	return this.find(k)
 }
 
-//https://leetcode.cn/problems/prefix-and-suffix-search/solution/go-200can-kao-by-takagi-san/
+/*
+https://leetcode.cn/problems/prefix-and-suffix-search/solution/go-200can-kao-by-takagi-san/
+- -字典树
+存word{word的后缀, 用suffix{prefix去查找
+*/
