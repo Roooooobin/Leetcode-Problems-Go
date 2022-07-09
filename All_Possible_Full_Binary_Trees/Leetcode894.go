@@ -29,3 +29,8 @@ func allPossibleFBT(n int) []*TreeNode {
 	}
 	return res
 }
+
+/*
+- -后序遍历
+左边右边分别求结果, 然后组合
+*/

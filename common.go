@@ -7,7 +7,7 @@ import (
 
 func abs(x int) int {
 	if x < 0 {
-		x = -x
+		return -x
 	}
 	return x
 }

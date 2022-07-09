@@ -25,3 +25,9 @@ func max(x, y int) int {
 		return y
 	}
 }
+
+/*
+- -DP
+按长度排序, 枚举每一个字符当作插入的那个
+dp[w] = max(dp[w], dp[w[:j]+w[j+1:]]+1
+*/

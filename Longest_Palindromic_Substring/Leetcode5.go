@@ -27,3 +27,8 @@ func longestPalindrome(s string) string {
 	}
 	return s[start : start+res]
 }
+
+/*
+- -DP
+dp[i][j] = dp[i+1][j-1] && s[i] == s[j]
+*/

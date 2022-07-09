@@ -24,7 +24,7 @@ func kthSmallestPrimeFraction(arr []int, k int) []int {
 	return []int{fracs[k-1].x, fracs[k-1].y}
 }
 
-//func kthSmallestPrimeFraction(arr []int, k int) []int {
+//func kthSmallestPrimeFractionBetter(arr []int, k int) []int {
 //	n := len(arr)
 //	h := make(hp, n-1)
 //	for j := 1; j < n; j++ {
@@ -52,3 +52,8 @@ func kthSmallestPrimeFraction(arr []int, k int) []int {
 //链接：https://leetcode.cn/problems/k-th-smallest-prime-fraction/solution/di-k-ge-zui-xiao-de-su-shu-fen-shu-by-le-argw/
 //来源：力扣（LeetCode）
 //著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+/*
+- -多路归并
+每一个元素和后面的元素构成一条链表
+*/
