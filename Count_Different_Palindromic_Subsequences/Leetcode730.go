@@ -36,3 +36,8 @@ func countPalindromicSubsequences(s string) int {
 	}
 	return res
 }
+
+/*
+- -DP
+状态dp(x,i,j)表示在字符串区间s[i:j] 中以字符 x 为开头和结尾的不同「回文序列」总数
+*/

@@ -402,3 +402,89 @@ func combinationSum4(nums []int, target int) int {
 	}
 	return dp[target]
 }
+
+// 二叉树中序遍历
+func inorderTraversal(root *TreeNode) (res []int) {
+
+	var stack []*TreeNode
+	for root != nil || len(stack) > 0 {
+		for root != nil {
+			stack = append(stack, root)
+			root = root.Left
+		}
+		root = stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		res = append(res, root.Val)
+		root = root.Right
+	}
+	return
+}
+
+// 二叉树前序遍历
+func preorderTraversal(root *TreeNode) (res []int) {
+
+	var stack []*TreeNode
+	for root != nil || len(stack) > 0 {
+		for root != nil {
+			res = append(res, root.Val)
+			stack = append(stack, root)
+			root = root.Left
+		}
+		root = stack[len(stack)-1].Right
+		stack = stack[:len(stack)-1]
+	}
+	return
+}
+
+func postorderTraversal(root *TreeNode) (res []int) {
+
+	if root == nil {
+		return
+	}
+	var stack []*TreeNode
+	cur := root
+	stack = append(stack, cur)
+	stack = append(stack, cur)
+	for len(stack) > 0 {
+		cur = stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		// 尚未遍历左右子树
+		if len(stack) > 0 && cur == stack[len(stack)-1] {
+			if cur.Right != nil {
+				stack = append(stack, cur.Right)
+				stack = append(stack, cur.Right)
+			}
+			if cur.Left != nil {
+				stack = append(stack, cur.Left)
+				stack = append(stack, cur.Left)
+			}
+		} else {
+			res = append(res, cur.Val)
+		}
+	}
+	return
+}
+
+func postorderTraversalBetter(root *TreeNode) (res []int) {
+
+	var stack []*TreeNode
+	var prev *TreeNode
+	for root != nil || len(stack) > 0 {
+		for root != nil {
+			stack = append(stack, root)
+			root = root.Left
+		}
+		root = stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		// 如果没有右子树或者已经访问过了, 则可以访问当前节点
+		if root.Right == nil || root.Right == prev {
+			res = append(res, root.Val)
+			prev = root
+			root = nil
+		} else {
+			stack = append(stack, root)
+			root = root.Right
+		}
+	}
+	return
+}

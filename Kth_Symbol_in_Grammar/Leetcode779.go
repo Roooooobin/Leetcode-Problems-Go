@@ -17,3 +17,8 @@ func kthGrammar(n int, k int) int {
 		}
 	}
 }
+
+/*
+- -递归
+按照延展规律递归
+*/

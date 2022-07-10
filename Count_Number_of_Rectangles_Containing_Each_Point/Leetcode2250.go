@@ -46,3 +46,8 @@ func countRectangles(rectangles [][]int, points [][]int) []int {
 	}
 	return res
 }
+
+/*
+- -二分
+利用y值范围小, 按y值存储对应的x(按序)+二分
+*/

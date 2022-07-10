@@ -47,3 +47,8 @@ func minOperations(boxes string) []int {
 func main() {
 	minOperations("110")
 }
+
+/*
+- -二分
+记录1出现的位置ones[], 二分搜索当前下标idx的位置, 算从两边过来的1的距离和(可以用前缀和优化)
+*/

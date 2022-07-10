@@ -79,3 +79,8 @@ func subarraysWithKDistinct(nums []int, k int) (ans int) {
 来源：力扣（LeetCode）
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 */
+
+/*
+- -滑动窗口
+k个distinct的左区间left1,k-1的左区间left2,那么当前k个distinct的组合数为left2-left1
+*/
