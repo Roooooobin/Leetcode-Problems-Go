@@ -4,9 +4,6 @@ func permute(nums []int) [][]int {
 
 	n := len(nums)
 	res := make([][]int, 0)
-	swap := func(i, j int, a []int) {
-		a[i], a[j] = a[j], a[i]
-	}
 	var backtracking func(idx int, cur []int)
 	backtracking = func(idx int, cur []int) {
 		if idx == n {
@@ -14,9 +11,9 @@ func permute(nums []int) [][]int {
 			return
 		}
 		for i := idx; i < n; i++ {
-			swap(idx, i, cur)
+			cur[idx], cur[i] = cur[i], cur[idx]
 			backtracking(idx+1, cur)
-			swap(idx, i, cur)
+			cur[idx], cur[i] = cur[i], cur[idx]
 		}
 	}
 	backtracking(0, nums)
