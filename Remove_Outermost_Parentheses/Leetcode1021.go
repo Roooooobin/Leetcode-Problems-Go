@@ -21,7 +21,7 @@ func removeOuterParentheses(s string) string {
 	return res
 }
 
-func removeOuterParentheses2(s string) string {
+func removeOuterParenthesesBetter(s string) string {
 	var ans, st []rune
 	for _, c := range s {
 		if c == ')' {

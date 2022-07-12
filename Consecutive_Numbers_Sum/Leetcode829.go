@@ -16,3 +16,8 @@ func consecutiveNumbersSum(n int) int {
 	}
 	return res
 }
+
+/*
+- -数论
+n > k^2/2
+*/

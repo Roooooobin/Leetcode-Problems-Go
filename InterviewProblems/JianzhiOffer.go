@@ -488,3 +488,25 @@ func postorderTraversalBetter(root *TreeNode) (res []int) {
 	}
 	return
 }
+
+func oddCells(m, n int, indices [][]int) (res int) {
+
+	a := make([][]int, m)
+	for i := range a {
+		a[i] = make([]int, n)
+	}
+	for _, p := range indices {
+		for j := range a[p[0]] {
+			a[p[0]][j]++
+		}
+		for _, row := range a {
+			row[p[1]]++
+		}
+	}
+	for _, row := range a {
+		for _, v := range row {
+			res += v % 2
+		}
+	}
+	return
+}

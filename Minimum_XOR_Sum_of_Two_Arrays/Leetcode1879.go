@@ -38,3 +38,8 @@ func min(x, y int) int {
 func main() {
 	fmt.Println(minimumXORSum([]int{1, 0, 3}, []int{5, 3, 4}))
 }
+
+/*
+- -状态压缩DP
+m=1<<n, dp[m]表示选择数组nums2的状态mask, mask中某一位为0表示还没有选, 那么尝试选择, c=bits.OnesCount(i)表示现在选择的是第c个
+*/

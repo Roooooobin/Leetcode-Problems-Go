@@ -34,6 +34,10 @@ func (t *CountIntervals) Count() int {
 	return t.cnt
 }
 
+/*
+- -红黑树
+*/
+
 //作者：endlesscheng
 //链接：https://leetcode.cn/problems/count-integers-in-intervals/solution/by-endlesscheng-clk2/
 //来源：力扣（LeetCode）

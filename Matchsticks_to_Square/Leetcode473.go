@@ -57,3 +57,8 @@ func check(a []int, target int) bool {
 	}
 	return true
 }
+
+/*
+- -回溯
+从大到小排序可以优化, 先放大的如果满了
+*/

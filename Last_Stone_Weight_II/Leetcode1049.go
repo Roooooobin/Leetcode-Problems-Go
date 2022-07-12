@@ -32,3 +32,8 @@ func abs(x int) int {
 	}
 	return x
 }
+
+/*
+- -DP
+转化为target = sum / 2的背包问题
+*/

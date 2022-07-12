@@ -39,3 +39,8 @@ func minInsertions(s string) int {
 	}
 	return res + 2*left
 }
+
+/*
+- -贪心
+逻辑有点复杂, 根据当前左右括号不同的个数的场景分别处理
+*/

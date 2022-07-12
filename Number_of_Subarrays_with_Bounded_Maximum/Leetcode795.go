@@ -25,7 +25,7 @@ func max(x, y int) int {
 	}
 }
 
-func numSubarrayBoundedMax2(nums []int, left int, right int) int {
+func numSubarrayBoundedMaxBetter(nums []int, left int, right int) int {
 
 	count := func(a []int, target int) int {
 		res, cur := 0, 0
@@ -41,3 +41,8 @@ func numSubarrayBoundedMax2(nums []int, left int, right int) int {
 	}
 	return count(nums, right) - count(nums, left-1)
 }
+
+/*
+- -将范围拆分为单点计算
+count(right) - count(left-1)
+*/
