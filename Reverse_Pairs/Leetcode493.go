@@ -62,6 +62,10 @@ func reversePairs(nums []int) int {
 }
 
 func main() {
-
 	fmt.Println(reversePairs([]int{2, 4, 3, 5, 1}))
 }
+
+/*
+- -树状数组
+逆序对, 也可以用归并排序的思想做
+*/

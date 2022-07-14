@@ -35,11 +35,15 @@ func getUnique(nums []int) []int {
 func max(x, y int) int {
 	if x > y {
 		return x
-	} else {
-		return y
 	}
+	return y
 }
 
-func main() {
-	minOperations([]int{4, 2, 5, 3})
-}
+/*
+- -去重+二分
+对排序去重后的nums中的一段区间[l,r], 如果要保留所有元素, 需要替换区间外的元素填充, nums[r]-nums[l]+1-(r-l+1)
+区间外元素个数不能少于填充的元素个数
+nums[r]-nums[l]+1-(r-l+1) <= n-(r-l+1)
+nums[l] >= nums[r]-n+1
+枚举nums[r], 得到最小满足该式的l,此时[l,r]能够保留
+*/

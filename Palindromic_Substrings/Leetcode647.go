@@ -29,3 +29,8 @@ func countSubstrings(s string) int {
 	}
 	return res
 }
+
+/*
+- -DP
+经典DP判断每个子串是否回文, 然后数就行
+*/

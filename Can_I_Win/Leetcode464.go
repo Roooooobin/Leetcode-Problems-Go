@@ -37,3 +37,9 @@ func canIWin(n int, t int) bool {
 	}
 	return dfs(0, 0) == 1
 }
+
+/*
+- -DP+博弈论+记忆化搜索
+dp[state]表示当前选择的掩码mask为state时先手能否赢, 赢的条件时当前选择的total>=t
+记忆化dp
+*/

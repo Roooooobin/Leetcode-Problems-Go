@@ -49,3 +49,8 @@ func max(x, y int) int {
 		return y
 	}
 }
+
+/*
+- -记忆化搜索
+自上下左右搜索, 记忆化memo[i][j], 如果计算过直接返回
+*/

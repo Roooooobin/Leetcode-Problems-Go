@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 )
 
@@ -36,6 +35,7 @@ func splitString(s string) bool {
 	return res
 }
 
-func main() {
-	fmt.Println(splitString("050043"))
-}
+/*
+- -回溯
+记录一个pre, 然后回溯确认当前切分的num是否为pre-1
+*/

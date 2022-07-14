@@ -30,3 +30,10 @@ func max(x, y int) int {
 func main() {
 	print(find132pattern([]int{-2, 1, 1, -2, 1, 1}))
 }
+
+/*
+https://leetcode.cn/problems/132-pattern/solution/xiang-xin-ke-xue-xi-lie-xiang-jie-wei-he-95gt/
+- -单调栈
+枚举i，单调栈存j，维护最大k
+维护单调递减栈, 保证有一个(j,k)对且j>k, 因为k是从栈中弹出来的, 如果k大于当前的i, 表示找到了132
+*/
