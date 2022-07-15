@@ -19,3 +19,7 @@ func reachingPoints(sx int, sy int, tx int, ty int) bool {
 	}
 	return false
 }
+
+/*
+- -反向
+*/
