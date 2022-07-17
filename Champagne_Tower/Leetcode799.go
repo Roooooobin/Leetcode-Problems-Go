@@ -21,6 +21,11 @@ func champagneTower(poured int, query_row int, query_glass int) float64 {
 	return min(1.0, a[query_row][query_glass])
 }
 
+/*
+- -模拟
+模拟往下流的过程
+*/
+
 func min(x, y float64) float64 {
 	if x < y {
 		return x

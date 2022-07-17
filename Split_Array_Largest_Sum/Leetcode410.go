@@ -48,3 +48,7 @@ func splitArray(nums []int, m int) int {
 	}
 	return lo
 }
+
+/*
+- -二分答案+贪心
+*/

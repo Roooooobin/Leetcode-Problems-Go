@@ -15,6 +15,10 @@ func brokenCalc(startValue int, target int) int {
 	return res + startValue - target
 }
 
+/*
+- -贪心
+反向从target开始, 总是优先做除2的操作, 如果是奇数先做加法再除法
+*/
 // BFS TLE
 //seen := make(map[int]struct{})
 //queue := make([][]int, 0)

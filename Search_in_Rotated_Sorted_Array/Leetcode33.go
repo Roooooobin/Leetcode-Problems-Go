@@ -9,14 +9,14 @@ func search(nums []int, target int) int {
 		if nums[mi] == target {
 			return mi
 		}
-		if nums[mi] >= nums[lo] {
-			if target <= nums[mi] && target >= nums[lo] {
+		if nums[mi] >= nums[0] {
+			if target < nums[mi] && target >= nums[0] {
 				hi = mi - 1
 			} else {
 				lo = mi + 1
 			}
 		} else {
-			if target >= nums[mi] && target <= nums[hi] {
+			if target > nums[mi] && target <= nums[n-1] {
 				lo = mi + 1
 			} else {
 				hi = mi - 1

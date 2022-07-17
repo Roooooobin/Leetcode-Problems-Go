@@ -1,5 +1,7 @@
 package main
 
+import "sort"
+
 func subarraySum(nums []int, k int) int {
 
 	hash := make(map[int]int)
@@ -550,4 +552,53 @@ func intersect(q1, q2 *Node) *Node {
 		return &Node{Val: o1.Val, IsLeaf: true}
 	}
 	return &Node{false, false, o1, o2, o3, o4}
+}
+
+func pairSums(nums []int, target int) (res [][]int) {
+
+	sort.Ints(nums)
+	n := len(nums)
+	lo, hi := 0, n-1
+	for lo < hi {
+		if nums[lo]+nums[hi] == target {
+			res = append(res, []int{nums[lo], nums[hi]})
+			lo++
+			hi--
+		} else if nums[lo]+nums[hi] > target {
+			hi--
+		} else {
+			lo++
+		}
+	}
+	return
+}
+
+func search(nums []int, target int) int {
+
+	n := len(nums)
+	lo, hi := 0, n-1
+	for lo <= hi {
+		if nums[lo] == target {
+			return lo
+		}
+		mi := lo + (hi-lo)>>1
+		if nums[mi] == target {
+			hi = mi
+		} else if nums[mi] > nums[0] {
+			if target < nums[mi] && target >= nums[0] {
+				hi = mi - 1
+			} else {
+				lo = mi + 1
+			}
+		} else if nums[mi] < nums[0] {
+			if target > nums[mi] && target <= nums[n-1] {
+				lo = mi + 1
+			} else {
+				hi = mi - 1
+			}
+		} else {
+			lo++
+		}
+	}
+	return -1
 }
