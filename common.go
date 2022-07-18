@@ -20,7 +20,7 @@ func gcd(x, y int) int {
 }
 
 func init() {
-	MOD := int(1e9 + 7)
+	const MOD = 1e9 + 7
 	directions := [4][2]int{{0, 1}, {0, -1}, {-1, 0}, {1, 0}}
 	fmt.Println(MOD, directions)
 }

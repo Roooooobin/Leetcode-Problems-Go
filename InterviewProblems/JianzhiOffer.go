@@ -602,3 +602,54 @@ func search(nums []int, target int) int {
 	}
 	return -1
 }
+
+func findString(a []string, s string) int {
+
+	lo, hi := 0, len(a)-1
+	for lo <= hi {
+		for lo <= hi && a[lo] == "" {
+			lo++
+		}
+		for lo <= hi && a[hi] == "" {
+			hi--
+		}
+		mi := lo + (hi-lo)>>1
+		for mi <= hi && a[mi] == "" {
+			mi++
+		}
+		if a[mi] == s {
+			return mi
+		}
+		if a[mi] < s {
+			lo = mi + 1
+		} else {
+			hi = mi - 1
+		}
+	}
+	return -1
+}
+
+/*
+https://leetcode.cn/problems/sparse-array-search-lcci
+- -二分变式
+*/
+
+func searchMatrix(a [][]int, target int) bool {
+
+	if len(a) == 0 {
+		return false
+	}
+	m, n := len(a), len(a[0])
+	i, j := 0, n-1
+	for i < m && j >= 0 {
+		if a[i][j] == target {
+			return true
+		}
+		if a[i][j] < target {
+			i++
+		} else {
+			j--
+		}
+	}
+	return false
+}
