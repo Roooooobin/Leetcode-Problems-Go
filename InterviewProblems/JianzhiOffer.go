@@ -1,6 +1,9 @@
 package main
 
-import "sort"
+import (
+	"math"
+	"sort"
+)
 
 func subarraySum(nums []int, k int) int {
 
@@ -276,13 +279,6 @@ func containsNearbyAlmostDuplicate(nums []int, k int, t int) bool {
 	return false
 }
 
-func abs(x int) int {
-	if x < 0 {
-		x = -x
-	}
-	return x
-}
-
 //func kSmallestPairs(nums1 []int, nums2 []int, k int) [][]int {
 //
 //	n1, n2 := len(nums1), len(nums2)
@@ -380,13 +376,6 @@ func coinChange(coins []int, amount int) int {
 		return -1
 	}
 	return dp[amount]
-}
-
-func min(x, y int) int {
-	if x < y {
-		return x
-	}
-	return y
 }
 
 func combinationSum4(nums []int, target int) int {
@@ -653,3 +642,41 @@ func searchMatrix(a [][]int, target int) bool {
 	}
 	return false
 }
+
+func smallestDifference(a []int, b []int) int {
+
+	sort.Ints(a)
+	sort.Ints(b)
+	i, j := 0, 0
+	res := math.MaxInt32
+	for i < len(a) && j < len(b) {
+		res = min(res, abs(a[i]-b[j]))
+		if a[i] == b[j] {
+			return 0
+		} else if a[i] < b[j] {
+			i++
+		} else {
+			j++
+		}
+	}
+	return res
+}
+
+func abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}
+
+func min(x, y int) int {
+	if x < y {
+		return x
+	}
+	return y
+}
+
+/*
+https://leetcode.cn/problems/smallest-difference-lcci/
+- -排序+双指针
+*/
