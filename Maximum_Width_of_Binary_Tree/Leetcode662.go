@@ -51,3 +51,8 @@ func max(x, y int) int {
 		return y
 	}
 }
+
+/*
+- -BFS
+给每个节点带上下标(记录位置, 那么宽度即R-L+1)
+*/

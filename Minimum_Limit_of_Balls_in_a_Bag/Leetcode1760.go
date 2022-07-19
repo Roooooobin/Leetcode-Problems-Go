@@ -20,3 +20,7 @@ func minimumSize(nums []int, maxOperations int) int {
 	}
 	return lo
 }
+
+/*
+- -二分答案
+*/

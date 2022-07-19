@@ -39,3 +39,7 @@ func bestRotation(nums []int) int {
 func main() {
 	fmt.Println(bestRotation([]int{2, 3, 1, 4, 0}))
 }
+
+/*
+- -差分数组的巧用
+*/

@@ -105,3 +105,9 @@ func main() {
 "***|**|*****|**||**|*"
 [[1,17],[4,5],[14,17],[5,11],[15,16]]
 */
+
+/*
+https://leetcode.cn/problems/plates-between-candles/solution/gong-shui-san-xie-er-fen-qian-zhui-he-yu-0qt0/
+- -二分+前缀和
+先找到两侧的蜡烛, 再用前缀和统计该区间的盘子数
+*/

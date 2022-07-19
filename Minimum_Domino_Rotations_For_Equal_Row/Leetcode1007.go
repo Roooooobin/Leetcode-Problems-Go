@@ -62,3 +62,36 @@ func fully(m1, m2 map[int]struct{}, n int) int {
 func main() {
 	minDominoRotations([]int{2, 1, 2, 4, 2, 2}, []int{5, 2, 6, 2, 3, 2})
 }
+
+func minDominoRotationsBetter(tops []int, bottoms []int) int {
+
+	a := make([]int, 7)
+	b := make([]int, 7)
+	tot := make([]int, 7)
+	for i := 1; i < 7; i++ {
+		tot[i] = len(tops)
+	}
+	for i := range tops {
+		if tops[i] == bottoms[i] {
+			tot[tops[i]]--
+		} else {
+			a[tops[i]]++
+			b[bottoms[i]]++
+		}
+	}
+	res := len(tops) + 1
+	for i := 1; i < 7; i++ {
+		if a[i]+b[i] >= tot[i] {
+			res = min(res, min(a[i], b[i]))
+		}
+	}
+	if res == len(tops)+1 {
+		return -1
+	}
+	return res
+}
+
+/*
+- -贪心
+直接记录1-6的个数, 上下加起来数量够, 取6个点数中上下最小值
+*/

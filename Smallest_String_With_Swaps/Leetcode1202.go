@@ -64,3 +64,7 @@ func smallestStringWithSwaps(s string, pairs [][]int) string {
 func main() {
 	print(smallestStringWithSwaps("dcab", [][]int{{0, 3}, {1, 2}, {1, 3}}))
 }
+
+/*
+- -并查集
+*/

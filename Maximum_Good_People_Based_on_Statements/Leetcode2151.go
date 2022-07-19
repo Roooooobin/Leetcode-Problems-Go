@@ -89,3 +89,7 @@ func main() {
 
 	fmt.Println(maximumGood([][]int{{2, 1, 2}, {1, 2, 2}, {2, 0, 2}}))
 }
+
+/*
+- -状态压缩
+*/

@@ -680,3 +680,50 @@ func min(x, y int) int {
 https://leetcode.cn/problems/smallest-difference-lcci/
 - -排序+双指针
 */
+
+func maxAliveYear(birth []int, death []int) int {
+
+	a := make([]int, 102)
+	for _, y := range birth {
+		a[y-1900]++
+	}
+	for _, y := range death {
+		a[y-1900+1]--
+	}
+	maxN := 0
+	maxY := -1
+	ps := 0
+	for i := 0; i < len(a); i++ {
+		ps += a[i]
+		if ps > maxN {
+			maxY = i + 1900
+			maxN = ps
+		}
+	}
+	return maxY
+}
+
+func findSwapValues(a1 []int, a2 []int) []int {
+
+	sum1 := 0
+	sum2 := 0
+	for _, x := range a1 {
+		sum1 += x
+	}
+	mp := make(map[int]bool)
+	for _, x := range a2 {
+		sum2 += x
+		mp[x] = true
+	}
+	diff := sum2 - sum1
+	if diff&1 == 1 {
+		return []int{}
+	}
+	diff >>= 1
+	for _, x := range a1 {
+		if mp[x+diff] {
+			return []int{x, x + diff}
+		}
+	}
+	return []int{}
+}
