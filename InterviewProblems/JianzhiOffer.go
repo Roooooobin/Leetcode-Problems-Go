@@ -727,3 +727,20 @@ func findSwapValues(a1 []int, a2 []int) []int {
 	}
 	return []int{}
 }
+
+func minSubsequence(nums []int) []int {
+
+	sort.Slice(nums, func(i, j int) bool {
+		return nums[i] > nums[j]
+	})
+	tot := 0
+	for _, num := range nums {
+		tot += num
+	}
+	for i, sum := 0, 0; ; i++ {
+		sum += nums[i]
+		if sum > tot-sum {
+			return nums[:i+1]
+		}
+	}
+}
