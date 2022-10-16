@@ -744,3 +744,57 @@ func minSubsequence(nums []int) []int {
 		}
 	}
 }
+
+func missingTwo(nums []int) []int {
+	xorSum := 0
+	n := len(nums) + 2
+	for _, num := range nums {
+		xorSum ^= num
+	}
+	for i := 1; i <= n; i++ {
+		xorSum ^= i
+	}
+	kBit := xorSum & -xorSum
+	// use kBit divides into two groups
+	group1, group2 := 0, 0
+	for _, num := range nums {
+		if num&kBit > 0 {
+			group1 ^= num
+		} else {
+			group2 ^= num
+		}
+	}
+	for i := 1; i <= n; i++ {
+		if i&kBit > 0 {
+			group1 ^= i
+		} else {
+			group2 ^= i
+		}
+	}
+	return []int{group1, group2}
+}
+
+//作者：LeetCode-Solution
+//链接：https://leetcode.cn/problems/missing-two-lcci/solution/xiao-shi-de-liang-ge-shu-zi-by-leetcode-zuwq3/
+//来源：力扣（LeetCode）
+//著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+func getKthMagicNumber(k int) int {
+
+	dp := make([]int, k)
+	idx3, idx5, idx7 := 0, 0, 0
+	dp[0] = 1
+	for i := 1; i < k; i++ {
+		dp[i] = min(dp[idx3]*3, min(dp[idx5]*5, dp[idx7]*7))
+		if dp[i] == dp[idx3]*3 {
+			idx3++
+		}
+		if dp[i] == dp[idx5]*5 {
+			idx5++
+		}
+		if dp[i] == dp[idx7]*7 {
+			idx7++
+		}
+	}
+	return dp[k-1]
+}
