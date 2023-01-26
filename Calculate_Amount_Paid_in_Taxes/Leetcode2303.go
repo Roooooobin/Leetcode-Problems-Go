@@ -22,3 +22,8 @@ func min(x, y int) int {
 	}
 	return y
 }
+
+/*
+- -模拟
+模拟超额累进缴税
+*/
