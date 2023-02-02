@@ -14,3 +14,7 @@ func gcd(x, y int) int {
 	}
 	return gcd(y, x%y)
 }
+
+/*
+- -字符串辗转相除
+*/
